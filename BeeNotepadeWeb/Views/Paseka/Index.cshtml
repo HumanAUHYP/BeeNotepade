@@ -5,6 +5,8 @@
 <div class="row justify-content-end">
     <a class="btn btn-primary" asp-controller="Paseka"
        asp-action="Add" role="button">Добавить новый улей</a>
+    <a class="btn btn-danger" asp-controller="Paseka"
+       asp-action="LogOut" role="button">Выйти</a>
 </div>
 <br>
 
@@ -20,7 +22,7 @@
                     <p class="font-weight-normal">@menu.Description</p>
                     <img class="card-img-top" src="@menu.Image" />
                     <p class="font-weight-normal">Дней до проверки @menu.DaysForCheck</p>
-                    <a class="btn btn-lg btn-danger" asp-controller="Paseka"
+                    <a class="btn btn-danger" asp-controller="Paseka"
                        asp-action="Remove" asp-route-id="@menu.Id"
                        role="button">
                         Удалить

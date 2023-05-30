@@ -5,14 +5,14 @@ using System.Linq;
 
 namespace CoreLibrary
 {
-    public interface IMenuStorage
+    public interface IBeehiveStorage
     {
         void Add(Beehive beehive);
         void RemoveById(string id);
         void ReadFromFile(string path);
         void WriteInFile(string path);
     }
-    public class BeehiveStorage : IMenuStorage
+    public class BeehiveStorage : IBeehiveStorage
     {
         public List<Beehive> BeeGarden { get; private set; }
 
