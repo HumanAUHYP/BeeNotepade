@@ -1,0 +1,37 @@
+﻿@using CoreLibrary;
+@model List<Beehive>
+
+<h2>Создание отводков</h2>
+<div class="row justify-content-end">
+    <a class="btn btn-primary" asp-controller="Paseka"
+       asp-action="Add" role="button">Добавить новый улей</a>
+</div>
+<br>
+
+<div class="row">
+    @foreach (var menu in Model)
+    {
+        <div class="col-md-4 mb-5">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h2 class="card-title text-center">
+                        <a>@menu.Name</a>
+                    </h2>
+                    <p class="font-weight-normal">@menu.Description</p>
+                    <img class="card-img-top" src="@menu.Image" />
+                    <p class="font-weight-normal">Дней до проверки @menu.DaysForCheck</p>
+                    <a class="btn btn-lg btn-danger" asp-controller="Paseka"
+                       asp-action="Remove" asp-route-id="@menu.Id"
+                       role="button">
+                        Удалить
+                    </a>
+                    <a class="btn btn-primary" asp-controller="Paseka"
+                       asp-action="Change" asp-route-id="@menu.Id"
+                       role="button">
+                        Изменить
+                    </a>
+                </div>
+            </div>
+        </div>
+    }
+</div>

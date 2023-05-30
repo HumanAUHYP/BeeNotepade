@@ -1,0 +1,40 @@
+﻿@model CoreLibrary.Beehive
+
+<div class="row justify-content-lg-cehter">
+    <h1>Добавление нового улья</h1>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Add">
+            <div class="form-group">
+                <label asp-for="Name" class="control-label">Название</label>
+                <input asp-for="Name" class=" form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label">Описание</label>
+                <input asp-for="Description" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Image" class="control-label">Ссылка на картинку</label>
+                <input asp-for="Image" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="FiledFrames" class="control-label">Заполненных рамок</label>
+                <input type="number" asp-for="FiledFrames" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="IsLayering" class="control-label">Это отводок?</label>
+                <input type="checkbox" asp-for="IsLayering" class="form-control" />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Добавить" class=" btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Вернуться к пасеке</a>
+</div>
+
