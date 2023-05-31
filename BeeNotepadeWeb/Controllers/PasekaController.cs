@@ -14,7 +14,7 @@ namespace BeeNotepadeWeb.Controllers
 {
     public class PasekaController : Controller
     {
-        private string path = @"..\CoreLibrary\data\menu.txt";
+        private string path = @"..\CoreLibrary\data\";
 
         // ссылка на объект - хранилище ульев
         BeehiveStorage beehiveStorage;
@@ -29,10 +29,14 @@ namespace BeeNotepadeWeb.Controllers
         public IActionResult Index()
         {
             var token = HttpContext.Session.GetString("_UserToken");
+            
 
             if (token != null)
             {
-                beehiveStorage.ReadFromFile(path);
+                var user = HttpContext.Session.GetString("_UserEmail");
+                user = user.Replace('.', '_').Replace('@', '_');
+                HttpContext.Session.SetString("_UserEmail", user);
+                beehiveStorage.ReadFromFile($"{path}{user}.txt");
                 var today = DateTime.Today;
                 foreach (Beehive beehive in beehiveStorage.BeeGarden)
                 {
@@ -99,10 +103,12 @@ namespace BeeNotepadeWeb.Controllers
                 var fbAuthLink = await auth
                                 .SignInWithEmailAndPasswordAsync(loginModel.Email, loginModel.Password);
                 string token = fbAuthLink.FirebaseToken;
+                string email = fbAuthLink.User.Email;
                 //save the token to a session variable
                 if (token != null)
                 {
                     HttpContext.Session.SetString("_UserToken", token);
+                    HttpContext.Session.SetString("_UserEmail", email);
 
                     return RedirectToAction("Index");
                 }
@@ -121,6 +127,7 @@ namespace BeeNotepadeWeb.Controllers
         public IActionResult LogOut()
         {
             HttpContext.Session.Remove("_UserToken");
+            HttpContext.Session.Remove("_UserEmail");
             return RedirectToAction("SignIn");
         }
 
@@ -132,8 +139,9 @@ namespace BeeNotepadeWeb.Controllers
         [HttpPost]
         public IActionResult Add(Beehive beehive)
         {
+            var user = HttpContext.Session.GetString("_UserEmail");
             beehiveStorage.Add(beehive);
-            beehiveStorage.WriteInFile(path);
+            beehiveStorage.WriteInFile($"{path}{user}.txt");
             return RedirectToAction("Index");
         }
 
@@ -145,14 +153,16 @@ namespace BeeNotepadeWeb.Controllers
         [HttpPost]
         public IActionResult Change(Beehive beehive)
         {
+            var user = HttpContext.Session.GetString("_UserEmail");
             beehiveStorage.Change(beehive);
-            beehiveStorage.WriteInFile(path);
+            beehiveStorage.WriteInFile($"{path}{user}.txt");
             return RedirectToAction("Index");
         }
         public IActionResult Remove(string id)
         {
+            var user = HttpContext.Session.GetString("_UserEmail");
             beehiveStorage.RemoveById(id);
-            beehiveStorage.WriteInFile(path);
+            beehiveStorage.WriteInFile($"{path}{user}.txt");
             return RedirectToAction("Index");
         }
     }

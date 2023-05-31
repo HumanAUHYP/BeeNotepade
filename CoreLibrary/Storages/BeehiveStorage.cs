@@ -77,6 +77,7 @@ namespace CoreLibrary
         public void ReadFromFile(string path)
         {
             BeeGarden.Clear();
+
             try
             {
                 using (var sr = new StreamReader(path))
@@ -93,6 +94,7 @@ namespace CoreLibrary
 
         public void WriteInFile(string path)
         {
+            
             using (var sw = new StreamWriter(path, false))
             {
                 foreach (var beehive in BeeGarden)
