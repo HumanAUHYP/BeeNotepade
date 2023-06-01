@@ -34,8 +34,6 @@ namespace BeeNotepadeWeb.Controllers
             if (token != null)
             {
                 var user = HttpContext.Session.GetString("_UserEmail");
-                user = user.Replace('.', '_').Replace('@', '_');
-                HttpContext.Session.SetString("_UserEmail", user);
                 beehiveStorage.ReadFromFile($"{path}{user}.txt");
                 var today = DateTime.Today;
                 foreach (Beehive beehive in beehiveStorage.BeeGarden)
@@ -104,6 +102,7 @@ namespace BeeNotepadeWeb.Controllers
                                 .SignInWithEmailAndPasswordAsync(loginModel.Email, loginModel.Password);
                 string token = fbAuthLink.FirebaseToken;
                 string email = fbAuthLink.User.Email;
+                email = email.Replace('.', '_').Replace('@', '_');
                 //save the token to a session variable
                 if (token != null)
                 {
