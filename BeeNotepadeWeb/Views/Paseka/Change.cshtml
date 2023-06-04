@@ -27,14 +27,30 @@
                 <label asp-for="FiledFrames" class="control-label">Заполненных рамок</label>
                 <input type="number" asp-for="FiledFrames" value="@Model.FiledFrames" class="form-control" />
             </div>
-            <div class="form-group">
-                <label asp-for="CheckQuinCells" class="control-label">Проверил маточники</label>
-                <input type="checkbox" asp-for="CheckQuinCells" class="form-control" />
-            </div>
-            <div class="form-group">
-                <label asp-for="IsCull" class="control-label">Сделал выбраковку</label>
-                <input type="checkbox" asp-for="IsCull" class="form-control" />
-            </div>
+            @if (!Model.CheckQuinCells)
+            {
+                <div class="form-group">
+                    <label asp-for="CheckQuinCells" class="control-label">Проверил маточники</label>
+                    <input type="checkbox" asp-for="CheckQuinCells" class="form-control" />
+                </div>
+            }
+            else
+            {
+                <input type="checkbox" style="display: none" asp-for="CheckQuinCells" value="true" class="form-control" />
+            }
+
+            @if (!Model.IsCull)
+            {
+                <div class="form-group">
+                    <label asp-for="IsCull" class="control-label">Сделал выбраковку</label>
+                    <input type="checkbox" asp-for="IsCull" class="form-control" />
+                </div>
+            }
+            else
+            {
+                <input type="checkbox" style="display: none" asp-for="IsCull" value="true" class="form-control" />
+            }
+
             <div class="form-group">
                 <label asp-for="CheckBeehive" class="control-label">Проверил улей</label>
                 <input type="checkbox" asp-for="CheckBeehive" class="form-control" />

@@ -26,8 +26,8 @@ namespace CoreLibrary
             if (BeeGarden.Count != 0)
                 beehive.Id = BeeGarden.Last().Id + 1;
             else beehive.Id = 1;
-            beehive.CheckQuinCells = false;
-            beehive.IsCull = false;
+            beehive.CheckQuinCells = true;
+            beehive.IsCull = true;
             beehive.CheckBeehive = false;
             beehive.DaysForCheck = CountDaysForCheck(beehive).DaysForCheck;
             beehive.AddDate = DateTime.Today;
