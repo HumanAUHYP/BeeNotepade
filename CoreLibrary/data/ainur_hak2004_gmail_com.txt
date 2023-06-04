@@ -1,4 +1,6 @@
-1;Красный;Среднерусская пчела;https://static.baza.farpost.ru/v/1641510933187_bulletin;10;False;True;True;False;1;04.06.2023 0:00:00
-2;Синий;Среднерусская пчела;https://ru-ulei.ru/wp-content/uploads/2020/07/5mk31917.jpg;2;True;True;True;False;0;10.12.2022 0:00:00
-3;Отводок от синего;Среднерусская пчела;https://ru-ulei.ru/wp-content/uploads/2020/07/5mk31917.jpg;4;True;True;True;False;1;04.06.2023 0:00:00
-4;Отводок от красного;Среднерусская пчела;https://static.baza.farpost.ru/v/1641510933187_bulletin;6;True;True;True;False;1;04.06.2023 0:00:00
+1;Красный;Среднерусская пчела;https://static.baza.farpost.ru/v/1641510933187_bulletin;10;False;True;True;False;0;05.06.2023 0:00:00
+2;Синий;Среднерусская пчела;https://ru-ulei.ru/wp-content/uploads/2020/07/5mk31917.jpg;2;False;True;True;False;0;05.06.2023 0:00:00
+3;Отводок от синего;Среднерусская пчела;https://ru-ulei.ru/wp-content/uploads/2020/07/5mk31917.jpg;4;True;True;True;False;0;05.06.2023 0:00:00
+4;Отводок от красного;Среднерусская пчела;https://static.baza.farpost.ru/v/1641510933187_bulletin;6;True;True;True;False;0;05.06.2023 0:00:00
+5;Новый улей;Среднерусская пчела;https://ru-ulei.ru/wp-content/uploads/2020/07/5mk31917.jpg;5;False;True;True;False;0;05.06.2023 0:00:00
+6;Новый отводок;Отводок.;https://static.baza.farpost.ru/v/1641510933187_bulletin;6;True;True;False;False;1;05.06.2023 0:00:00

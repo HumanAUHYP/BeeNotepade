@@ -29,8 +29,20 @@ namespace CoreLibrary
             beehive.CheckQuinCells = true;
             beehive.IsCull = true;
             beehive.CheckBeehive = false;
-            beehive.DaysForCheck = CountDaysForCheck(beehive).DaysForCheck;
             beehive.AddDate = DateTime.Today;
+            beehive.DaysForCheck = CountDaysForCheck(beehive).DaysForCheck;
+            BeeGarden.Add(beehive);
+        }
+        public void AddOffshoot(Beehive beehive)
+        {
+            if (BeeGarden.Count != 0)
+                beehive.Id = BeeGarden.Last().Id + 1;
+            else beehive.Id = 1;
+            beehive.CheckQuinCells = false;
+            beehive.IsCull = false;
+            beehive.CheckBeehive = false;
+            beehive.AddDate = DateTime.Today;
+            beehive.DaysForCheck = CountDaysForCheck(beehive).DaysForCheck;
             BeeGarden.Add(beehive);
         }
 
@@ -49,6 +61,7 @@ namespace CoreLibrary
             chBeehive.IsCull = beehive.IsCull;
             chBeehive.CheckBeehive = beehive.CheckBeehive;
             chBeehive.DaysForCheck = CountDaysForCheck(chBeehive).DaysForCheck;
+            chBeehive.CheckBeehive = CountDaysForCheck(chBeehive).CheckBeehive;
         }
 
         public Beehive CountDaysForCheck(Beehive beehive)
@@ -60,7 +73,11 @@ namespace CoreLibrary
             if (beehive.IsCull)
                 beehive.DaysForCheck = 1;
             if (beehive.CheckBeehive)
+            {
                 beehive.DaysForCheck = 16;
+                beehive.CheckBeehive = false;
+            }
+                
             return beehive;
         }
 

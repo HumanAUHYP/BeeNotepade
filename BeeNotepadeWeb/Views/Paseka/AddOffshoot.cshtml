@@ -1,19 +1,19 @@
 ﻿@model CoreLibrary.Beehive
 
 <div class="row justify-content-lg-cehter">
-    <h1>Добавление нового улья</h1>
+    <h1>Добавление отводка</h1>
 </div>
 
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Add">
+        <form asp-action="AddOffshoot">
             <div class="form-group">
                 <label asp-for="Name" class="control-label">Название</label>
                 <input asp-for="Name" class=" form-control" />
             </div>
             <div class="form-group">
                 <label asp-for="Description" class="control-label">Описание</label>
-                <input asp-for="Description" class="form-control" />
+                <input asp-for="Description" value="Отводок." class="form-control" />
             </div>
             <div class="form-group">
                 <label asp-for="Image" class="control-label">Ссылка на картинку</label>
@@ -21,7 +21,10 @@
             </div>
             <div class="form-group">
                 <label asp-for="FiledFrames" class="control-label">Заполненных рамок</label>
-                <input type="number" asp-for="FiledFrames" class="form-control" />
+                <input type="number" asp-for="FiledFrames" value="6" class="form-control" />
+            </div>
+            <div class="form-group">
+                <input type="checkbox" style="display: none" asp-for="IsLayering" checked="checked" class="form-control" />
             </div>
             <div class="form-group">
                 <input type="submit" value="Добавить" class=" btn btn-primary" />

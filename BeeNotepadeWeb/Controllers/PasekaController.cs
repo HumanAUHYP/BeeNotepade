@@ -39,6 +39,7 @@ namespace BeeNotepadeWeb.Controllers
                 foreach (Beehive beehive in beehiveStorage.BeeGarden)
                 {
                     beehive.DaysForCheck -= (int)Math.Round((today - beehive.AddDate).TotalDays);
+                    beehive.AddDate = today;
                     if (beehive.DaysForCheck < 0)
                         beehive.DaysForCheck = 0;
                 }
@@ -140,6 +141,19 @@ namespace BeeNotepadeWeb.Controllers
         {
             var user = HttpContext.Session.GetString("_UserEmail");
             beehiveStorage.Add(beehive);
+            beehiveStorage.WriteInFile($"{path}{user}.txt");
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult AddOffshoot()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult AddOffshoot(Beehive beehive)
+        {
+            var user = HttpContext.Session.GetString("_UserEmail");
+            beehiveStorage.AddOffshoot(beehive);
             beehiveStorage.WriteInFile($"{path}{user}.txt");
             return RedirectToAction("Index");
         }
