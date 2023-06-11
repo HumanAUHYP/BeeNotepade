@@ -46,6 +46,12 @@ namespace CoreLibrary
             BeeGarden.Add(beehive);
         }
 
+        public void ChoiceBeehive(string id)
+        {
+            Beehive chBeehive = BeeGarden.Find(m => m.Id == Convert.ToInt32(id));
+            chBeehive.FiledFrames -= 6;
+        }
+
         public void Change(Beehive beehive)
         {
             Beehive chBeehive = BeeGarden.Find(m => m.Id == beehive.Id);

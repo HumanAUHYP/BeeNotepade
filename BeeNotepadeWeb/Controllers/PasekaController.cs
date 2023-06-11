@@ -145,8 +145,18 @@ namespace BeeNotepadeWeb.Controllers
             return RedirectToAction("Index");
         }
 
-        public IActionResult AddOffshoot()
+        public IActionResult ChoiceBeehive()
         {
+
+            return View(beehiveStorage.BeeGarden);
+        }
+        
+        
+        public IActionResult AddOffshoot(string id)
+        {
+            var user = HttpContext.Session.GetString("_UserEmail");
+            beehiveStorage.ChoiceBeehive(id);
+            beehiveStorage.WriteInFile($"{path}{user}.txt");
             return View();
         }
         [HttpPost]
