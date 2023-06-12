@@ -80,7 +80,7 @@ namespace BeeNotepadeWeb.Controllers
             catch (FirebaseAuthException ex)
             {
                 var firebaseEx = JsonConvert.DeserializeObject<FirebaseError>(ex.ResponseData);
-                ModelState.AddModelError(String.Empty, firebaseEx.error.message);
+                ModelState.AddModelError(String.Empty, firebaseEx.error.message.Replace('_', ' '));
                 return View(loginModel);
             }
 
@@ -117,7 +117,7 @@ namespace BeeNotepadeWeb.Controllers
             catch (FirebaseAuthException ex)
             {
                 var firebaseEx = JsonConvert.DeserializeObject<FirebaseError>(ex.ResponseData);
-                ModelState.AddModelError(String.Empty, firebaseEx.error.message);
+                ModelState.AddModelError(String.Empty, firebaseEx.error.message.Replace('_', ' '));
                 return View(loginModel);
             }
 
