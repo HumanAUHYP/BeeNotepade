@@ -75,6 +75,7 @@ namespace BeeNotepadeWeb.Controllers
                 if (token != null)
                 {
                     HttpContext.Session.SetString("_UserToken", token);
+                    HttpContext.Session.SetString("_UserEmail", email);
                     HttpContext.Session.SetString("_TgID", loginModel.TgID);
 
                     return RedirectToAction("Index");
@@ -105,8 +106,7 @@ namespace BeeNotepadeWeb.Controllers
                 var fbAuthLink = await auth
                                 .SignInWithEmailAndPasswordAsync(loginModel.Email, loginModel.Password);
                 string token = fbAuthLink.FirebaseToken;
-                string email = fbAuthLink.User.Email;
-                email = email.Replace('.', '_').Replace('@', '_');
+                string email = fbAuthLink.User.Email.Replace('.', '_').Replace('@', '_');
                 var tgID = "";
                 //save the token to a session variable
                 if (token != null)

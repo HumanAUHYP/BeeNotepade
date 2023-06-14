@@ -22,6 +22,14 @@
                 <span asp-validation-for="Password" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="TgID" class="control-label">Telegram ID</label>
+                <input asp-for="TgID" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">Для получения Telegram ID перейдите сюда </label>
+                <a href="https://t.me/getmyid_bot">@@getmyid_bot</a>
+            </div>
+            <div class="form-group">
                 <input type="submit" value="Отправить" class="btn btn-primary" />
             </div>
         </form>

@@ -1,8 +1,8 @@
-3;Василий;Среднерусская пчела;182788.jpg;6;True;True;True;False;0;17.06.2023 0:00:00
-5;Иван;Среднерусская пчела;mnogokorpusnyy-uley-svoimi-rukami-1a-scaled.jpg;6;False;True;True;False;0;17.06.2023 0:00:00
-6;Кирилл;Отводок. Среднерусская пчела;ulei-ppu-828x1024.jpg;6;True;False;False;False;0;17.06.2023 0:00:00
-7;Петр;Среднерусская пчела;img_2215.jpg;7;False;True;True;False;0;17.06.2023 0:00:00
-9;Никита;Среднерусская пчела;1421240171_uley.jpg;4;False;True;True;False;0;17.06.2023 0:00:00
-10;Олег;Среднерусская пчела;1662426098_1-kartinkof-club-p-novie-i-krasivie-kartinki-ulei-1.jpg;7;False;True;True;False;0;17.06.2023 0:00:00
-11;Иванович;Отводок. Пчела;https://ru-ulei.ru/wp-content/uploads/2020/07/5mk31917.jpg;6;True;True;False;False;1;17.06.2023 0:00:00
-12;Новый;Отводок.;derevyannyj-dadan.jpg;6;True;False;False;False;0;17.06.2023 0:00:00
+3;Василий;Среднерусская пчела;182788.jpg;6;True;True;True;False;0;13.06.2023 0:00:00
+5;Иван;Среднерусская пчела;mnogokorpusnyy-uley-svoimi-rukami-1a-scaled.jpg;6;False;True;True;False;0;13.06.2023 0:00:00
+6;Кирилл;Отводок. Среднерусская пчела;ulei-ppu-828x1024.jpg;6;True;False;False;False;0;13.06.2023 0:00:00
+7;Петр;Среднерусская пчела;img_2215.jpg;7;False;True;True;False;0;13.06.2023 0:00:00
+9;Никита;Среднерусская пчела;1421240171_uley.jpg;4;False;True;True;False;0;13.06.2023 0:00:00
+10;Олег;Среднерусская пчела;1662426098_1-kartinkof-club-p-novie-i-krasivie-kartinki-ulei-1.jpg;7;False;True;True;False;0;13.06.2023 0:00:00
+11;Иванович;Отводок. Пчела;https://ru-ulei.ru/wp-content/uploads/2020/07/5mk31917.jpg;6;True;True;False;False;1;13.06.2023 0:00:00
+12;Новый;Отводок.;derevyannyj-dadan.jpg;6;True;False;False;False;0;13.06.2023 0:00:00
