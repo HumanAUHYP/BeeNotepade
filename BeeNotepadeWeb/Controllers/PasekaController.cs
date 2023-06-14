@@ -70,6 +70,7 @@ namespace BeeNotepadeWeb.Controllers
                 //log in the new user
                 var fbAuthLink = await auth
                                 .SignInWithEmailAndPasswordAsync(loginModel.Email, loginModel.Password);
+                string email = fbAuthLink.User.Email.Replace('.', '_').Replace('@', '_');
                 string token = fbAuthLink.FirebaseToken;
                 //saving the token in a session variable
                 if (token != null)
