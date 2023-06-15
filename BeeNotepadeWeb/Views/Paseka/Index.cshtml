@@ -13,24 +13,24 @@
 <br>
 
 <div class="row">
-    @foreach (var menu in Model)
+    @foreach (var beehive in Model)
     {
         <div class="col-md-4 mb-5">
             <div class="card h-100">
                 <div class="card-body">
                     <h2 class="card-title text-center">
-                        <a>@menu.Name</a>
+                        <a>@beehive.Name</a>
                     </h2>
-                    <p class="font-weight-normal">@menu.Description</p>
-                    <img class="card-img-top" src="@menu.Image" />
-                    <p class="font-weight-normal">Дней до проверки @menu.DaysForCheck</p>
+                    <p class="font-weight-normal">@beehive.Description</p>
+                    <img class="card-img-top" src="@beehive.Image" />
+                    <p class="font-weight-normal">Дней до проверки @beehive.DaysForCheck</p>
                     <a class="btn btn-danger" asp-controller="Paseka"
-                       asp-action="Remove" asp-route-id="@menu.Id"
+                       asp-action="Remove" asp-route-id="@beehive.Id"
                        role="button">
                         Удалить
                     </a>
                     <a class="btn btn-primary" asp-controller="Paseka"
-                       asp-action="Change" asp-route-id="@menu.Id"
+                       asp-action="Change" asp-route-id="@beehive.Id"
                        role="button">
                         Изменить
                     </a>

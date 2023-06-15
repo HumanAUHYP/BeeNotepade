@@ -1,2 +1,2 @@
-1;123;2;2;2;False;False;False;False;0;31.05.2023 0:00:00
-2;Русскай;23;23;2;False;False;False;False;0;31.05.2023 0:00:00
+1;Красивый;Маленький улей;https://static.baza.farpost.ru/v/1641510933187_bulletin;2;False;True;True;False;1;05.06.2023 0:00:00
+2;Мира на небе;Отводок.;https://ru-ulei.ru/wp-content/uploads/2020/07/5mk31917.jpg;6;True;False;False;False;4;05.06.2023 0:00:00

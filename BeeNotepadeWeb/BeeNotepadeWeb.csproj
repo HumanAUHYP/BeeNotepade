@@ -13,6 +13,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="wwwroot\1421240171_uley.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Firebase.Auth" Version="1.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Session" Version="2.2.0" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.5" />
