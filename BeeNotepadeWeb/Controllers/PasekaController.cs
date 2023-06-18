@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using CoreLibrary;
 using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -34,7 +35,8 @@ namespace BeeNotepadeWeb.Controllers
             if (token != null)
             {
                 var user = HttpContext.Session.GetString("_UserEmail");
-                beehiveStorage.ReadFromFile($"{path}{user}.txt");
+                var tgID = HttpContext.Session.GetString("_TgID");
+                beehiveStorage.ReadFromFile($"{path}{user}-{tgID}.txt");
                 var today = DateTime.Today;
                 foreach (Beehive beehive in beehiveStorage.BeeGarden)
                 {
@@ -73,6 +75,7 @@ namespace BeeNotepadeWeb.Controllers
                 if (token != null)
                 {
                     HttpContext.Session.SetString("_UserToken", token);
+                    HttpContext.Session.SetString("_TgID", loginModel.TgID);
 
                     return RedirectToAction("Index");
                 }
@@ -104,11 +107,24 @@ namespace BeeNotepadeWeb.Controllers
                 string token = fbAuthLink.FirebaseToken;
                 string email = fbAuthLink.User.Email;
                 email = email.Replace('.', '_').Replace('@', '_');
+                var tgID = "";
                 //save the token to a session variable
                 if (token != null)
                 {
+                    var files = Directory.GetFiles(path);
+                    foreach (var file in files)
+                    {
+                        Console.WriteLine(file);
+                        if (file.Contains(email))
+                        {
+                            tgID = file.Split("-")[1].Replace(".txt", "");
+                            break;
+                        }
+
+                    }
                     HttpContext.Session.SetString("_UserToken", token);
                     HttpContext.Session.SetString("_UserEmail", email);
+                    HttpContext.Session.SetString("_TgID", tgID);
 
                     return RedirectToAction("Index");
                 }
@@ -128,6 +144,7 @@ namespace BeeNotepadeWeb.Controllers
         {
             HttpContext.Session.Remove("_UserToken");
             HttpContext.Session.Remove("_UserEmail");
+            HttpContext.Session.Remove("_TgID");
             return RedirectToAction("SignIn");
         }
 
@@ -140,8 +157,9 @@ namespace BeeNotepadeWeb.Controllers
         public IActionResult Add(Beehive beehive)
         {
             var user = HttpContext.Session.GetString("_UserEmail");
+            var tgID = HttpContext.Session.GetString("_TgID");
             beehiveStorage.Add(beehive);
-            beehiveStorage.WriteInFile($"{path}{user}.txt");
+            beehiveStorage.WriteInFile($"{path}{user}-{tgID}.txt");
             return RedirectToAction("Index");
         }
 
@@ -155,16 +173,18 @@ namespace BeeNotepadeWeb.Controllers
         public IActionResult AddOffshoot(string id)
         {
             var user = HttpContext.Session.GetString("_UserEmail");
+            var tgID = HttpContext.Session.GetString("_TgID");
             beehiveStorage.ChoiceBeehive(id);
-            beehiveStorage.WriteInFile($"{path}{user}.txt");
+            beehiveStorage.WriteInFile($"{path}{user}-{tgID}.txt");
             return View();
         }
         [HttpPost]
         public IActionResult AddOffshoot(Beehive beehive)
         {
             var user = HttpContext.Session.GetString("_UserEmail");
+            var tgID = HttpContext.Session.GetString("_TgID");
             beehiveStorage.AddOffshoot(beehive);
-            beehiveStorage.WriteInFile($"{path}{user}.txt");
+            beehiveStorage.WriteInFile($"{path}{user}-{tgID}.txt");
             return RedirectToAction("Index");
         }
 
@@ -177,15 +197,17 @@ namespace BeeNotepadeWeb.Controllers
         public IActionResult Change(Beehive beehive)
         {
             var user = HttpContext.Session.GetString("_UserEmail");
+            var tgID = HttpContext.Session.GetString("_TgID");
             beehiveStorage.Change(beehive);
-            beehiveStorage.WriteInFile($"{path}{user}.txt");
+            beehiveStorage.WriteInFile($"{path}{user}-{tgID}.txt");
             return RedirectToAction("Index");
         }
         public IActionResult Remove(string id)
         {
             var user = HttpContext.Session.GetString("_UserEmail");
+            var tgID = HttpContext.Session.GetString("_TgID");
             beehiveStorage.RemoveById(id);
-            beehiveStorage.WriteInFile($"{path}{user}.txt");
+            beehiveStorage.WriteInFile($"{path}{user}-{tgID}.txt");
             return RedirectToAction("Index");
         }
     }
